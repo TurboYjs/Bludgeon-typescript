@@ -12,10 +12,10 @@ export const StatsView = defineComponent({
   setup() {
     // we got all the stock mouvements already
     // no need to make an api call
-    const { stockMouvements } = storeToRefs(useStockStore());
+    const { stockMovements } = storeToRefs(useStockStore());
     // reformate the data
-    const [stockData, months] = useStatsStore().getStockMouvementStats(
-      stockMouvements.value
+    const [stockData, months] = useStatsStore().getStockMovementStats(
+      stockMovements.value
     );
     console.log(stockData);
 
@@ -24,7 +24,9 @@ export const StatsView = defineComponent({
         <div class="w-full h-full grid grid-cols-1 grid-rows-1">
           <div>
             <h1 class="uppercase text-gray-600 font-semibold mb-1">
-              {globalTranslate("Stats.Title")}
+              {globalTranslate(
+                "Sold and bought items during the last three months"
+              )}
             </h1>
             <ChartBar
               id="stock-mouvements-for-past-three-months"
@@ -32,7 +34,7 @@ export const StatsView = defineComponent({
                 labels: months,
                 datasets: [
                   {
-                    label: globalTranslate("Stats.Labels[0]"),
+                    label: globalTranslate("BOUGHT"),
                     backgroundColor: "rgba(255, 200, 0, 0.2)",
                     borderColor: "rgba(255, 200, 0,0.5)",
                     data: [
@@ -43,7 +45,7 @@ export const StatsView = defineComponent({
                     borderWidth: 2,
                   },
                   {
-                    label: globalTranslate("Stats.Labels[1]"),
+                    label: globalTranslate("SOLD"),
                     data: [
                       stockData[months[0]]?.OUT ?? 0,
                       stockData[months[1]]?.OUT ?? 0,

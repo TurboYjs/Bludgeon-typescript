@@ -48,11 +48,9 @@ export const Navigation = defineComponent({
               </RouterLink>{" "}
               {route.fullPath !== "/" ? (
                 route.name == "CommandDetails" ? (
-                  `/ 🚚 ${globalTranslate("Global.routes.Commands")} / n°` +
-                  route.params.id
+                  `/ 🚚 ${globalTranslate("Commands")} / n°` + route.params.id
                 ) : route.name == "InvoiceDetails" ? (
-                  `/ 📋 ${globalTranslate("Global.routes.Invoices")} / n°` +
-                  route.params.id
+                  `/ 📋 ${globalTranslate("Invoices")} / n°` + route.params.id
                 ) : (
                   <span class="">
                     <span>
@@ -61,9 +59,7 @@ export const Navigation = defineComponent({
                         ? "/ " +
                           ActiveLink.value.icon +
                           " " +
-                          globalTranslate(
-                            `Global.routes.${ActiveLink.value.name}`
-                          )
+                          ActiveLink.value.name
                         : ""}
                     </span>
                   </span>

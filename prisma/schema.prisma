@@ -14,7 +14,7 @@ model Product {
   price           Float
   tva             Float            @default(0)
   type            String           @default("product")
-  stockMouvements StockMouvement[]
+  stockMovements StockMovement[]
   invoiceItems    InvoiceItem[]
   commandItems    CommandItem[]
 }
@@ -24,9 +24,9 @@ model Client {
   name     String
   phone    String?
   email    String?
-  addresse String?
+  address String?
   invoices Invoice[]
-  Credi    Credi[]
+  Credit    Credit[]
 }
 
 model Vendor {
@@ -34,7 +34,7 @@ model Vendor {
   name     String
   phone    String?
   email    String?
-  addresse String?
+  address String?
   commands Command[]
 }
 
@@ -55,7 +55,7 @@ model InvoiceItem {
   invoice   Invoice        @relation(fields: [invoiceId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   quantity  BigInt
   stockId   Int            @unique
-  stock     StockMouvement @relation(fields: [stockId], references: [id], onDelete: NoAction, onUpdate: Cascade)
+  stock     StockMovement @relation(fields: [stockId], references: [id], onDelete: NoAction, onUpdate: Cascade)
 }
 
 model Command {
@@ -75,10 +75,10 @@ model CommandItem {
   product   Product        @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   command   Command        @relation(fields: [commandId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   quantity  BigInt
-  stock     StockMouvement @relation(fields: [stockId], references: [id], onDelete: NoAction, onUpdate: Cascade)
+  stock     StockMovement @relation(fields: [stockId], references: [id], onDelete: NoAction, onUpdate: Cascade)
 }
 
-model StockMouvement {
+model StockMovement {
   id          Int          @id @default(autoincrement())
   date        DateTime     @default(now())
   model       String
@@ -89,7 +89,7 @@ model StockMouvement {
   productId   Int
 }
 
-model Credi {
+model Credit {
   id        Int      @id @default(autoincrement())
   client    Client   @relation(fields: [clientId], references: [id])
   createdAt DateTime @default(now())

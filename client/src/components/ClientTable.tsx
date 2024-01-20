@@ -45,7 +45,15 @@ export const ClientTable = defineComponent({
               {[0, 1, 2, 3, 4].map((index) => (
                 <th class="p-2 w-fit ">
                   <div class="font-semibold text-left">
-                    {globalTranslate(`Clients.index.feilds[${index}]`)}
+                    {index === 0
+                      ? globalTranslate("client name")
+                      : index === 1
+                      ? globalTranslate("e-mail")
+                      : index === 2
+                      ? globalTranslate("phone number")
+                      : index === 3
+                      ? globalTranslate("address")
+                      : ""}
                   </div>
                 </th>
               ))}
@@ -61,7 +69,9 @@ export const ClientTable = defineComponent({
                   <td class="p-2">
                     <span class="h-full w-full grid">
                       <UiCheckBox
-                        onCheck={(check) => checkThisUser(check, client.id)}
+                        onCheck={(check: boolean) =>
+                          checkThisUser(check, client.id)
+                        }
                       />
                     </span>
                   </td>
@@ -84,7 +94,7 @@ export const ClientTable = defineComponent({
                   </td>
                   <td class="p-2">
                     <div class="text-left whitespace-nowrap overflow-ellipsis">
-                      {client.addresse ?? (
+                      {client.address ?? (
                         <span class="text-red-400">No address</span>
                       )}
                     </div>

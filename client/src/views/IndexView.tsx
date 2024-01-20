@@ -15,7 +15,7 @@ export const IndexView = defineComponent({
     onBeforeRouteUpdate(() => {
       modalStore.updateModal({ key: "show", value: false });
     });
-    const IsCollapse = ref<boolean>(true);
+    const IsCollapse = ref<boolean>(false);
     return () => (
       <main
         class={`w-screen h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-transparent  flex `}

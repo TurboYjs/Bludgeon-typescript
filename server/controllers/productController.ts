@@ -5,7 +5,7 @@ import {
   updateProduct,
   deleteProduct,
   getProduct,
-  createStockMouvement,
+  createStockMovement,
 } from "../database/repository";
 
 import { Response, Request } from "express";
@@ -57,7 +57,7 @@ export const updateProductController = async (req: Request, res: Response) => {
   try {
     const row = await updateProduct({ id: Number(id), data: Product });
     if (Product.quantity && Product.quantity > 0) {
-      const updateStock = await createStockMouvement({
+      const updateStock = await createStockMovement({
         productId: row.id,
         quantity: Product.quantity,
         model: "IN",

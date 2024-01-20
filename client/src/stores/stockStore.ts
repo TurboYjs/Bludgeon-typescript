@@ -13,26 +13,26 @@ const api: string = "http://localhost:3111/stock/";
 export const useStockStore = defineStore("StockStore", {
   state: (): stockState => {
     return {
-      stockMouvements: [],
+      stockMovements: [],
     };
   },
   actions: {
-    getAllStockMouvements: async function () {
+    getAllStockMovements: async function () {
       const res: dataRowsT<stockMvmT> = await axios.get(api);
-      this.stockMouvements = res.data.rows;
+      this.stockMovements = res.data.rows;
       // .map((item) => ({
       //   ...item,
       //   date: formatDate(item.date),
       // }));
     },
-    createStockMouvement: async function (stockmvm: newStockMvmT) {
+    createStockMovement: async function (stockmvm: newStockMvmT) {
       const res: dataRowT<stockMvmT> = await axios.post(api, {
         data: {
           Stock: stockmvm,
         },
       });
       if (res.data.row.id) {
-        this.getAllStockMouvements();
+        this.getAllStockMovements();
       }
     },
   },

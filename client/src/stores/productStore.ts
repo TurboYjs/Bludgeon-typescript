@@ -68,7 +68,7 @@ export const useProductStore = defineStore("ProductStore", {
       this.products = res.data.rows.map((item: productTfromApiT) => {
         return {
           ...item,
-          quantity: item.stockMouvements.reduce((a, b) => a + b.quantity, 0),
+          quantity: item.stockMovements.reduce((a, b) => a + b.quantity, 0),
         };
       });
     },

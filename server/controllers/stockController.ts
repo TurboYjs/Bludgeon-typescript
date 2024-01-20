@@ -1,8 +1,8 @@
 import { errorResponse } from "../utils/error.handler";
 import {
-  createStockMouvement,
-  getStockMouvement,
-  getStockMouvements,
+  createStockMovement,
+  getStockMovement,
+  getStockMovements,
 } from "../database/repository";
 
 import { Response, Request } from "express";
@@ -11,7 +11,7 @@ import { serializeBigInt } from "../utils/serializeBigInt";
 export const createStockController = async (req: Request, res: Response) => {
   const { Stock } = req.body.data;
   try {
-    const row = await createStockMouvement(Stock);
+    const row = await createStockMovement(Stock);
     res.status(200).json({
       rows: serializeBigInt(row),
     });
@@ -23,7 +23,7 @@ export const createStockController = async (req: Request, res: Response) => {
 
 export const getStocksController = async (req: Request, res: Response) => {
   try {
-    const rows = await getStockMouvements();
+    const rows = await getStockMovements();
     res.status(200).json({
       rows: serializeBigInt(rows),
     });
@@ -35,7 +35,7 @@ export const getStocksController = async (req: Request, res: Response) => {
 export const getStockController = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
-    const row = await getStockMouvement(Number(id));
+    const row = await getStockMovement(Number(id));
     res.status(200).json({
       row: serializeBigInt(row),
     });

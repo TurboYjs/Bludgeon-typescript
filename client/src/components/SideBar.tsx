@@ -61,7 +61,7 @@ export const SideBar = defineComponent({
                     IsText={!props.IsCollapse}
                     LinkPath={link.path}
                     LinkIcon={link.icon}
-                    LinkText={globalTranslate(`Global.routes.${link.name}`)}
+                    LinkText={link.name}
                   />
                 );
               })}

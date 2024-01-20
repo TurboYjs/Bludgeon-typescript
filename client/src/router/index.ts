@@ -9,12 +9,13 @@ import { VendorView } from "@/views/content/VendorView";
 import { ClientView } from "@/views/content/ClientView";
 import { StockView } from "@/views/content/StockView";
 import { StatsView } from "@/views/content/StatsView";
-import { IndexView } from "../views/IndexView";
+import { IndexView } from "@/views/IndexView";
 import { AuthView } from "@/views/AuthView";
 import { InvoiceDetails } from "@/views/content/InvoiceDetails";
 import { InvoiceIndex } from "@/views/content/InvoiceIndex";
 import { HomeView } from "@/views/content/HomeView";
-import { CrediView } from "@/views/content/CrediView";
+import { CreditView } from "@/views/content/CreditView";
+import { ErdView } from "@/views/content/ErdView";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -94,9 +95,14 @@ const router = createRouter({
           component: NotificationsView,
         },
         {
-          path: "Credi",
-          name: "Credi",
-          component: CrediView,
+          path: "Credit",
+          name: "Credit",
+          component: CreditView,
+        },
+        {
+          path: "/Erd",
+          name: "Erd",
+          component: ErdView,
         },
       ],
     },

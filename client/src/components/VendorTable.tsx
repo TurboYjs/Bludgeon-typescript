@@ -46,7 +46,15 @@ export const VendorTable = defineComponent({
               {[0, 1, 2, 3, 4].map((index) => (
                 <th class="p-2 w-fit ">
                   <div class="font-semibold text-left">
-                    {globalTranslate(`Vendors.index.feilds[${index}]`)}
+                    {index === 0
+                      ? globalTranslate(`seller name`)
+                      : index === 1
+                      ? globalTranslate(`e-mail`)
+                      : index === 2
+                      ? globalTranslate(`phone number`)
+                      : index === 3
+                      ? globalTranslate(`address`)
+                      : ""}
                   </div>
                 </th>
               ))}

@@ -44,9 +44,9 @@ export const RouteLinks: RouteLinksTypeT[] = [
     icon: "📊",
   },
   {
-    path: "/Credi",
-    component: "Credi",
-    name: "Credi",
+    path: "/Credit",
+    component: "Credit",
+    name: "Credit",
     icon: "💵",
   },
 ];

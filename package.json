@@ -6,7 +6,13 @@
   "scripts": {
     "build": "tsc",
     "start": "npm run build && electron ./dist/electron/main.js",
-    "dev": "nodemon server/app.ts"
+    "dev": "nodemon server/app.ts",
+    "postinstall": "npx prisma generate",
+    "migrate": "prisma migrate deploy",
+    "migrate:reset": "prisma migrate reset",
+    "migrate:dev": "npx prisma migrate dev --create-only",
+    "migrate:deploy": "prisma migrate deploy",
+    "db-push": "prisma db push"
   },
   "dependencies": {
     "@prisma/client": "^4.6.1",
@@ -15,12 +21,16 @@
     "cors": "^2.8.5",
     "electron-squirrel-startup": "^1.0.0",
     "express": "^4.18.2",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "@prisma/internals": "4.12.0",
+    "mermaid": "8.9.0"
   },
   "devDependencies": {
     "electron": "^21.0.1",
     "electron-packager": "^17.1.1",
     "prisma": "^4.6.1",
-    "typescript": "^4.8.3"
+    "typescript": "^4.8.3",
+    "@mermaid-js/mermaid-cli": "10.6.1",
+    "nodemon": "3.0.3"
   }
 }

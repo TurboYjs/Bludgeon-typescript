@@ -50,7 +50,7 @@ export const InvoiceView = defineComponent({
                         : value.toLocaleLowerCase())
                   }
                   Type="text"
-                  PlaceHolder={globalTranslate("Global.search")}
+                  PlaceHolder={globalTranslate("Search")}
                 >
                   <UiIcon
                     class=" fill-gray-400 cursor-default hover:bg-white"
@@ -67,7 +67,7 @@ export const InvoiceView = defineComponent({
                     class=" fill-gray-900 cursor-default hover:bg-transparent"
                     name="add"
                   />{" "}
-                  {globalTranslate("Invoices.index.addButton")}
+                  {globalTranslate("Add new Invoice")}
                 </UiButton>
               </div>
             </div>

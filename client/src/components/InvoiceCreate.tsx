@@ -58,12 +58,12 @@ export const InvoiceCreate = defineComponent({
           )}
           class="font-semibold text-lg text-gray-800 border-b-2 border-b-gray-500 pb-2 uppercase text-center"
         >
-          {globalTranslate("Invoices.create.title")}
+          {globalTranslate("create new invoice")}
         </h1>
         <div class="h-full  w-full grid grid-cols-1 gap-2">
           <div class="w-full  h-full flex flex-col gap-1">
             <h1 class="font-medium">
-              {globalTranslate("Invoices.create.details.client.title")}
+              {globalTranslate("client details")}
             </h1>
             <UiSelect
               items={clients.value.map((client) => ({
@@ -73,12 +73,12 @@ export const InvoiceCreate = defineComponent({
               onSelect={(id: number) => (newInvoice.clientId = id)}
               IsClickedOuside={IsClicked.value}
             >
-              {globalTranslate("Invoices.create.details.client.select")}
+              {globalTranslate("Select a client")}
             </UiSelect>
           </div>
           <div class="w-full  h-full flex flex-col gap-1">
             <h1 class="font-medium">
-              {globalTranslate("Invoices.create.details.invoice.title")}
+              {globalTranslate("invoice details")}
             </h1>
             <div
               onClick={withModifiers(
@@ -92,7 +92,7 @@ export const InvoiceCreate = defineComponent({
                   InvoiceItems.value.push({ productId: 0, quantity: 0 })
                 }
               >
-                {globalTranslate("Invoices.create.details.invoice.add")}
+                {globalTranslate("add a product")}
               </UiButton>
               <div class="w-full grid grid-cols-[1fr_1fr_36px] pb-10 overflow-auto scrollbar-thin scrollbar-thumb-transparent max-h-64 gap-1">
                 <div class="flex flex-col gap-2">
@@ -106,7 +106,7 @@ export const InvoiceCreate = defineComponent({
                       IsClickedOuside={IsClicked.value}
                     >
                       {globalTranslate(
-                        "Invoices.create.details.invoice.select"
+                        "Select a product"
                       )}
                     </UiSelect>
                   ))}
@@ -141,7 +141,7 @@ export const InvoiceCreate = defineComponent({
         </div>
         <div class="flex">
           <UiButton colorTheme="a" onClick={() => createNewInvoice()}>
-            {globalTranslate("Invoices.create.button")}
+            {globalTranslate("Create a Invoice")}
           </UiButton>
         </div>
       </div>

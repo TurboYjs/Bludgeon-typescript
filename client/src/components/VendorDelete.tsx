@@ -21,19 +21,19 @@ export const VendorDelete = defineComponent({
     return () => (
       <div class="w-1/2 h-fit z-50 gap-3 flex flex-col bg-white p-2 min-w-[350px]">
         <h1 class="font-semibold text-lg text-gray-800 border-b-2 border-b-gray-500 pb-2 uppercase text-center">
-          {globalTranslate("Vendors.delete.title")}
+          {globalTranslate("are you sure you wanna delete the seller")}
           {vendor.value?.name} ?
         </h1>
         <div class="flex gap-2">
           <UiButton colorTheme="a" onClick={() => deleteTheVendor()}>
-            {globalTranslate("Vendors.delete.yes")}
+            {globalTranslate("Confirm")}
           </UiButton>
           <UiButton
             onClick={() =>
               modalStore.updateModal({ key: "show", value: false })
             }
           >
-            {globalTranslate("Vendors.delete.no")}
+            {globalTranslate("Cancel")}
           </UiButton>
         </div>
       </div>

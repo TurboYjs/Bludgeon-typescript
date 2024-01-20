@@ -1,8 +1,8 @@
 import { prisma } from "..";
 import { newStockT } from "../models";
 
-export const createStockMouvement = (data: newStockT) => {
-  return prisma.stockMouvement.create({
+export const createStockMovement = (data: newStockT) => {
+  return prisma.stockMovement.create({
     data: {
       quantity: data.quantity,
       model: data.model,
@@ -15,8 +15,8 @@ export const createStockMouvement = (data: newStockT) => {
   });
 };
 
-export const getStockMouvement = (id: number) => {
-  return prisma.stockMouvement.findUnique({
+export const getStockMovement = (id: number) => {
+  return prisma.stockMovement.findUnique({
     where: { id },
     select: {
       commandItem: {
@@ -28,8 +28,8 @@ export const getStockMouvement = (id: number) => {
   });
 };
 
-export const getStockMouvements = () => {
-  return prisma.stockMouvement.findMany({
+export const getStockMovements = () => {
+  return prisma.stockMovement.findMany({
     include: {
       product: {
         select: {

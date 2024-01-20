@@ -20,43 +20,43 @@ export const HomeView = defineComponent({
     const Pages: { image: string; text: string; path: string }[] = [
       {
         image: clients,
-        text: globalTranslate("Global.routes.Clients"),
+        text: globalTranslate("Clients"),
         path: "/Clients",
       },
       {
         image: products,
-        text: globalTranslate("Global.routes.Products"),
+        text: globalTranslate("Products"),
         path: "/Products",
       },
       {
         image: sellers,
-        text: globalTranslate("Global.routes.Sellers"),
+        text: globalTranslate("Sellers"),
         path: "/Vendors",
       },
       {
         image: commands,
-        text: globalTranslate("Global.routes.Commands"),
+        text: globalTranslate("Commands"),
         path: "/Commands/all",
       },
       {
         image: invoices,
-        text: globalTranslate("Global.routes.Invoices"),
+        text: globalTranslate("Invoices"),
         path: "/Invoices/all",
       },
       {
         image: stock,
-        text: globalTranslate("Global.routes.Stock"),
+        text: globalTranslate("Stock"),
         path: "/Stocks",
       },
       {
         image: stats,
-        text: globalTranslate("Global.routes.Statistics"),
+        text: globalTranslate("Statistics"),
         path: "/Stats",
       },
       {
         image: credi,
-        text: globalTranslate("Global.routes.Credi"),
-        path: "/Credi",
+        text: globalTranslate("Credit"),
+        path: "/Credit",
       },
     ];
     return () => (

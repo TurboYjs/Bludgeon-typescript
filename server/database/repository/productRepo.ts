@@ -9,7 +9,7 @@ export const createProduct = (data: newProductT) => {
       description: data.description,
       tva: data.tva,
       type: data.type,
-      stockMouvements: {
+      stockMovements: {
         create: {
           quantity: Number(data.quantity),
           model: "IN",
@@ -39,7 +39,7 @@ export const getProduct = (id: number) => {
 export const getAllProducts = () => {
   return prisma.product.findMany({
     include: {
-      stockMouvements: true,
+      stockMovements: true,
     },
     // orderBy: {
     //   id: "desc",

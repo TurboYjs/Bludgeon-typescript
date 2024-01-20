@@ -49,7 +49,7 @@ export const VendorView = defineComponent({
                         : value.toLocaleLowerCase())
                   }
                   Type="text"
-                  PlaceHolder={globalTranslate("Global.search")}
+                  PlaceHolder={globalTranslate("Search")}
                 >
                   <UiIcon
                     class=" fill-gray-400 cursor-default hover:bg-white"
@@ -66,7 +66,7 @@ export const VendorView = defineComponent({
                     class=" fill-gray-900 cursor-default hover:bg-transparent"
                     name="add"
                   />{" "}
-                  {globalTranslate("Vendors.index.addButton")}
+                  {globalTranslate("Add new seller")}
                 </UiButton>
               </div>
             </div>

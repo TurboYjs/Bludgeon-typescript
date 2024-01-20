@@ -17,7 +17,7 @@ const olderThanThreeMonths = (date: string): boolean =>
 
 export const useStatsStore = defineStore("StatsStore", {
   actions: {
-    getStockMouvementStats: (
+    getStockMovementStats: (
       stocks: stockMvmT[]
     ): [result: FilteredStockData, months: [string, string, string]] => {
       let result: FilteredStockData = {};

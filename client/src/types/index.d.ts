@@ -12,7 +12,7 @@ export interface modalsState {
   command: commandT | null;
   vendor: vendorT | null;
   invoice: invoiceT | null;
-  credi: crediT | null;
+  credit: crediT | null;
 }
 
 export interface productState {
@@ -40,7 +40,7 @@ export interface vendorState {
 }
 
 export interface stockState {
-  stockMouvements: stockMvmT[];
+  stockMovements: stockMvmT[];
 }
 ///////////////////////////////////
 //////////// INTERFACES //////////
@@ -144,7 +144,7 @@ export interface clientT {
   id: number;
   name: string;
   phone?: string;
-  addresse?: string;
+  address?: string;
   email?: string;
 }
 
@@ -188,14 +188,14 @@ export interface productT {
 }
 export interface newProductT extends Omit<productT, "id"> {}
 export interface productTfromApiT extends Omit<productT, "stock"> {
-  stockMouvements: { quantity: number }[];
+  stockMovements: { quantity: number }[];
 }
 export interface updateProductT extends Partial<productT> {}
 ////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 ////////////////////////////////////
 
-export interface crediT {
+export interface creditT {
   clientId: number;
   createdAt: string;
   id: number;
@@ -205,8 +205,8 @@ export interface crediT {
   };
 }
 
-export interface newCrediT
-  extends Omit<crediT, "id" | "createdAt" | "client"> {}
+export interface newCreditT
+  extends Omit<creditT, "id" | "createdAt" | "client"> {}
 
 //////////////////////////////////////////////////
 /////////////////////////////////////
@@ -238,4 +238,12 @@ export interface dataRowsT<T> {
   data: {
     rows: T[];
   };
+}
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      [elemName: string]: any;
+    }
+  }
 }

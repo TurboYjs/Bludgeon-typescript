@@ -13,7 +13,9 @@
     "strict": true,
     // if using webpack 2+ or rollup, to leverage tree shaking:
     "module": "ESNext",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "types": []
   },
 
   "references": [

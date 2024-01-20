@@ -6,10 +6,10 @@ import { RouterView, useRouter } from "vue-router";
 import { onBeforeMount, Transition } from "vue";
 
 onBeforeMount(() => {
-  useProductStore().getAllProducts();
-  useClientStore().getAllClients();
-  useVendorStore().getAllVendors();
-  useRouter().push("/Auth");
+  // useProductStore().getAllProducts();
+  // useClientStore().getAllClients();
+  // useVendorStore().getAllVendors();
+  // useRouter().push("/Auth");
 });
 </script>
 

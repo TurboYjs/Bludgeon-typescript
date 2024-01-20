@@ -4,10 +4,11 @@ import { productRoute } from "./routes/productRoute";
 import { clientRoute } from "./routes/clientRoute";
 import { sellerRoute } from "./routes/sellerRoute";
 import { stockRoute } from "./routes/stockRoute";
-import { crediRoute } from "./routes/crediRoute";
+import { creditRoute } from "./routes/creditRoute";
 import { Application } from "express";
 import * as express from "express";
 import * as cors from "cors";
+import {erdRoute} from "./routes/erdRoute";
 
 export class expressServer {
   public app: Application;
@@ -26,7 +27,8 @@ export class expressServer {
     this.app.use("/client", clientRoute);
     this.app.use("/vendor", sellerRoute);
     this.app.use("/stock", stockRoute);
-    this.app.use("/credi", crediRoute);
+    this.app.use("/credit", creditRoute);
+    this.app.use("/erd", erdRoute);
     this.server = this.app.listen(3111 || process.env.PORT, () => {
       console.log(`server is running on port ${3111}`);
     });

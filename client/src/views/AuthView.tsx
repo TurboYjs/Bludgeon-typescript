@@ -16,7 +16,7 @@ export const AuthView = defineComponent({
     const LogIn = () => {
       isflash.value = true;
       if (password.value == correctLogIn[1]) {
-        if (new Date() < new Date("3/1/2023")) {
+        if (new Date() < new Date("3/1/2025")) {
           router.push({ name: "Home" });
           return;
         }
@@ -30,12 +30,12 @@ export const AuthView = defineComponent({
         <div class="w-full h-full flex justify-center items-center flex-col">
           <div class="w-1/2 h-fit z-50 gap-3 flex flex-col bg-white p-2 min-w-[350px]">
             <h1 class="font-semibold text-lg text-gray-800 border-b-2 border-b-gray-500 pb-2 uppercase text-center">
-              {globalTranslate("Auth.title")}
+              {globalTranslate("Log in")}
             </h1>
             <div class="h-full w-full flex flex-col gap-2">
               <UiInput
                 Type="text"
-                PlaceHolder={globalTranslate("Auth.username")}
+                PlaceHolder={globalTranslate("Username")}
                 IsEmpty={username.value !== correctLogIn[0] && isflash.value}
                 OnInputChange={(input) =>
                   (username.value =
@@ -44,7 +44,7 @@ export const AuthView = defineComponent({
               />
               <UiInput
                 Type="password"
-                PlaceHolder={globalTranslate("Auth.password")}
+                PlaceHolder={globalTranslate("Password")}
                 IsEmpty={password.value !== correctLogIn[1] && isflash.value}
                 OnInputChange={(input) =>
                   (password.value =
@@ -54,7 +54,7 @@ export const AuthView = defineComponent({
             </div>
             <div class="flex">
               <UiButton colorTheme="a" onClick={() => LogIn()}>
-                {globalTranslate("Auth.title")}
+                {globalTranslate("Log in")}
               </UiButton>
             </div>
           </div>

@@ -14,7 +14,7 @@ export const VendorCreate = defineComponent({
       name: "",
       email: "",
       phone: "",
-      addresse: "",
+      address: "",
     });
     const createNewVendor = () => {
       isFlash.value = true;
@@ -29,7 +29,7 @@ export const VendorCreate = defineComponent({
     return () => (
       <div class="w-1/2 h-fit z-50 gap-3 flex flex-col bg-white p-2 min-w-[350px]">
         <h1 class="font-semibold text-lg text-gray-800 border-b-2 border-b-gray-500 pb-2 uppercase text-center">
-          {globalTranslate("Vendors.create.title")}
+          {globalTranslate("create a seller")}
         </h1>
         <div class="h-full w-full flex flex-col gap-2">
           <UiInput
@@ -39,7 +39,7 @@ export const VendorCreate = defineComponent({
                 typeof value == "string" ? value : JSON.stringify(value))
             }
             Type="text"
-            PlaceHolder={globalTranslate("Vendors.create.placeholders[0]")}
+            PlaceHolder={globalTranslate("Name")}
           />
           <UiInput
             IsEmpty={isFlash.value && newVendor["email"] == ""}
@@ -48,7 +48,7 @@ export const VendorCreate = defineComponent({
                 typeof value == "string" ? value : JSON.stringify(value))
             }
             Type="text"
-            PlaceHolder={globalTranslate("Vendors.create.placeholders[1]")}
+            PlaceHolder={globalTranslate("E-mail")}
           />
           <UiInput
             IsEmpty={isFlash.value && newVendor["phone"] == ""}
@@ -57,21 +57,21 @@ export const VendorCreate = defineComponent({
                 typeof value == "string" ? value : JSON.stringify(value))
             }
             Type="text"
-            PlaceHolder={globalTranslate("Vendors.create.placeholders[2]")}
+            PlaceHolder={globalTranslate("Phone number")}
           />
           <UiInput
-            IsEmpty={isFlash.value && newVendor["addresse"] == ""}
+            IsEmpty={isFlash.value && newVendor["address"] == ""}
             OnInputChange={(value) =>
-              (newVendor["addresse"] =
+              (newVendor["address"] =
                 typeof value == "string" ? value : JSON.stringify(value))
             }
             Type="text"
-            PlaceHolder={globalTranslate("Vendors.create.placeholders[3]")}
+            PlaceHolder={globalTranslate("Address")}
           />
         </div>
         <div class="flex">
           <UiButton colorTheme="a" onClick={() => createNewVendor()}>
-            {globalTranslate("Vendors.create.button")}
+            {globalTranslate("Create")}
           </UiButton>
         </div>
       </div>

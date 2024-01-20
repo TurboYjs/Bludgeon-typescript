@@ -1,31 +1,26 @@
 import { defineComponent, onBeforeMount, ref, Transition } from "vue";
-import { CommandTable } from "@/components/CommandTable";
-import { useCommandStore } from "@/stores/commandStore";
+import { globalTranslate } from "@/utils/globalTranslate";
+import { CreditTable } from "@/components/CreditTable";
 import { UiButton } from "@/components/ui/UiButton";
 import { useModalStore } from "@/stores/modalStore";
 import { UiInput } from "@/components/ui/UiInput";
 import UiIcon from "@/components/ui/UiIcon.vue";
 import { storeToRefs } from "pinia";
-import { globalTranslate } from "@/utils/globalTranslate";
+import { useCreditStore } from "@/stores/creditStore";
 
-export const CommandView = defineComponent({
-  name: "Commands",
-  components: {
-    CommandTable,
-    UiButton,
-    UiInput,
-    UiIcon,
-  },
+export const CreditView = defineComponent({
+  name: "Credits",
+  components: { CreditTable: CreditTable, UiButton, UiInput, UiIcon },
   setup() {
-    //
     const modalStore = useModalStore();
-    const CommandStore = useCommandStore();
-    const { commands } = storeToRefs(CommandStore);
+    const CreditStore = useCreditStore();
+    const { Credits } = storeToRefs(CreditStore);
     //
     const searchQuery = ref<string>("");
+
     //
     onBeforeMount(() => {
-      CommandStore.getAllCommands();
+      if (!Credits.value.length) CreditStore.getAllCredits();
     });
     //
     const updateModal = (name: string) => {
@@ -33,7 +28,7 @@ export const CommandView = defineComponent({
       modalStore.updateModal({ key: "name", value: name });
     };
     //
-    const sortCommandsBy = (by: string) => {};
+    const sortCreditsBy = (by: string) => {};
 
     return () => (
       <main class="w-full h-full px-3">
@@ -50,7 +45,7 @@ export const CommandView = defineComponent({
                         : value.toLocaleLowerCase())
                   }
                   Type="text"
-                  PlaceHolder={globalTranslate("Search")}
+                  PlaceHolder={globalTranslate("Global.search")}
                 >
                   <UiIcon
                     class=" fill-gray-400 cursor-default hover:bg-white"
@@ -61,22 +56,23 @@ export const CommandView = defineComponent({
               <div class="w-1/4 flex gap-2">
                 <UiButton
                   colorTheme="a"
-                  onClick={() => updateModal("CommandCreate")}
+                  onClick={() => updateModal("CrediCreate")}
                 >
                   <UiIcon
                     class=" fill-gray-900 cursor-default hover:bg-transparent"
                     name="add"
                   />{" "}
-                  {globalTranslate("Add new Command")}
+                  {globalTranslate("Credis.index.addButton")}
                 </UiButton>
               </div>
             </div>
           </Transition>
+
           <Transition appear>
-            <CommandTable
+            <CreditTable
               FilterParam={searchQuery.value}
-              sortBy={(by: string) => sortCommandsBy(by)}
-              Commands={commands.value}
+              sortBy={(by: string) => sortCreditsBy(by)}
+              Credit={Credits.value}
             />
           </Transition>
         </div>

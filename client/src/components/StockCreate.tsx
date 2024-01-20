@@ -21,7 +21,7 @@ export const StockCreate = defineComponent({
     });
     const createNewStock = () => {
       if (stockMvm.productId !== 0 && stockMvm.quantity !== 0) {
-        useStockStore().createStockMouvement(stockMvm);
+        useStockStore().createStockMovement(stockMvm);
         useModalStore().updateModal({ key: "show", value: false });
       }
     };

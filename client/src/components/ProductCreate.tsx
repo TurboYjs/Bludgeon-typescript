@@ -33,7 +33,7 @@ export const ProductCreate = defineComponent({
     return () => (
       <div class="w-1/2 h-fit z-50 gap-3 flex flex-col bg-white p-2 min-w-[350px]">
         <h1 class="font-semibold text-lg text-gray-800 border-b-2 border-b-gray-500 pb-2 uppercase text-center">
-          {globalTranslate("Products.create.title")}
+          {globalTranslate("create a product")}
         </h1>
         <div class="h-full w-full flex flex-col gap-2">
           <UiInput
@@ -43,43 +43,25 @@ export const ProductCreate = defineComponent({
                 typeof value == "string" ? value : JSON.stringify(value))
             }
             Type="text"
-            PlaceHolder={globalTranslate("Products.create.placeholders[0]")}
+            PlaceHolder={globalTranslate("Name")}
           />
-          {/* <UiSelect
-            IsClickedOuside={false}
-            items={[
-              {
-                id: 1,
-                name: "Produit",
-              },
-              {
-                id: 2,
-                name: "Service",
-              },
-            ]}
-            onSelect={(val) =>
-              (newProduct.type = val == 1 ? "Produit" : "Service")
-            }
-          >
-            {globalTranslate("Products.create.placeholders[1]")}
-          </UiSelect> */}
           <UiInput
             IsEmpty={isFlash.value && newProduct["price"] == 0}
             OnInputChange={(value) => (newProduct["price"] = Number(value))}
             Type="Number"
-            PlaceHolder={globalTranslate("Products.create.placeholders[2]")}
+            PlaceHolder={globalTranslate("Price in DH")}
           />
           <UiInput
             IsEmpty={isFlash.value && newProduct["tva"] == 0}
             OnInputChange={(value) => (newProduct["tva"] = Number(value))}
             Type="Number"
-            PlaceHolder={globalTranslate("Products.create.placeholders[3]")}
+            PlaceHolder={globalTranslate("TVA")}
           />
           <UiInput
             IsEmpty={isFlash.value && newProduct["quantity"] == 0}
             OnInputChange={(value) => (newProduct["quantity"] = Number(value))}
             Type="Number"
-            PlaceHolder={globalTranslate("Products.create.placeholders[4]")}
+            PlaceHolder={globalTranslate("Initiale Quantity")}
           />
           <UiInput
             IsEmpty={isFlash.value && newProduct["description"] == ""}
@@ -88,12 +70,12 @@ export const ProductCreate = defineComponent({
                 typeof value == "string" ? value : JSON.stringify(value))
             }
             Type="textarea"
-            PlaceHolder={globalTranslate("Products.create.placeholders[5]")}
+            PlaceHolder={globalTranslate("Description")}
           />
         </div>
         <div class="flex">
           <UiButton colorTheme="a" onClick={() => createNewProduct()}>
-            {globalTranslate("Products.create.button")}
+            {globalTranslate("Create")}
           </UiButton>
         </div>
       </div>

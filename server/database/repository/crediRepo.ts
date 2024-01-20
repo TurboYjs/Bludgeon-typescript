@@ -1,7 +1,7 @@
 import { prisma } from "..";
 
-export const createCredi = (Credi: any) => {
-  return prisma.credi.create({
+export const createCredit = (Credit: any) => {
+  return prisma.credit.create({
     data: {
       client: {
         connect: {
@@ -13,8 +13,8 @@ export const createCredi = (Credi: any) => {
   });
 };
 
-export const updateCredi = (id: number, Credi: any) => {
-  return prisma.credi.update({
+export const updateCredit = (id: number, Credit: any) => {
+  return prisma.credit.update({
     where: {
       id: 1,
     },
@@ -24,8 +24,8 @@ export const updateCredi = (id: number, Credi: any) => {
   });
 };
 
-export const getCredis = () => {
-  return prisma.credi.findMany({
+export const getCredits = () => {
+  return prisma.credit.findMany({
     include: {
       client: {
         select: {
@@ -36,8 +36,8 @@ export const getCredis = () => {
   });
 };
 
-export const deleteCredi = (id: number) => {
-  return prisma.credi.delete({
+export const deleteCredit = (id: number) => {
+  return prisma.credit.delete({
     where: {
       id,
     },

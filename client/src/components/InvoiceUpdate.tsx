@@ -67,14 +67,12 @@ export const InvoiceUpdate = defineComponent({
           )}
           class="font-semibold  text-lg text-gray-800 border-b-2 border-b-gray-500 pb-2 uppercase text-center"
         >
-          {globalTranslate("Invoices.update.title")}
+          {globalTranslate("update invoice")}
           N° {updateInvoice.id}
         </h1>
         <div class="h-full  w-full grid grid-cols-1 gap-2">
           <div class="w-full  h-full flex flex-col gap-1">
-            <h1 class="font-medium">
-              {globalTranslate("Invoices.update.details.client.title")}
-            </h1>
+            <h1 class="font-medium">{globalTranslate("client details")}</h1>
             <UiUpdateSelect
               Value={
                 clients.value.find((cli) => updateInvoice.clientId === cli.id)
@@ -87,11 +85,11 @@ export const InvoiceUpdate = defineComponent({
               onSelect={(id: number) => (updateInvoice.clientId = id)}
               IsClickedOuside={IsClicked.value}
             >
-              {globalTranslate("Invoices.update.details.client.select")}
+              {globalTranslate("")}
             </UiUpdateSelect>
           </div>
           <div class="w-full  h-full flex flex-col gap-1">
-            <h1 class="font-medium">invoice details</h1>
+            <h1 class="font-medium">{globalTranslate("invoice details")}</h1>
             <div
               onClick={withModifiers(
                 () => (IsClicked.value = !IsClicked.value),
@@ -107,7 +105,7 @@ export const InvoiceUpdate = defineComponent({
                   })
                 }
               >
-                {globalTranslate("Invoices.update.details.invoice.title")}
+                {globalTranslate("invoice details")}
               </UiButton>
               <div class="w-full grid grid-cols-[1fr_1fr_36px] pb-10 overflow-auto scrollbar-thin scrollbar-thumb-transparent max-h-64 gap-1">
                 <div class="flex flex-col gap-2">
@@ -125,7 +123,7 @@ export const InvoiceUpdate = defineComponent({
                       IsClickedOuside={IsClicked.value}
                     >
                       {globalTranslate(
-                        "Invoices.create.details.invoice.select"
+                        ""
                       )}
                     </UiUpdateSelect>
                   ))}
@@ -164,7 +162,7 @@ export const InvoiceUpdate = defineComponent({
         </div>
         <div class="flex">
           <UiButton colorTheme="a" onClick={() => updateTheInvoice()}>
-            {globalTranslate("Invoices.update.button")}
+            {globalTranslate("Update Invoice")}
           </UiButton>
         </div>
       </div>

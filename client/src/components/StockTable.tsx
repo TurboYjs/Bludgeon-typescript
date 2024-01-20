@@ -41,7 +41,23 @@ export const StockTable = defineComponent({
               {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
                 <th class="p-2">
                   <div class="font-semibold text-left">
-                    {globalTranslate(`Stocks.index.feilds[${index}]`)}
+                    {index === 0
+                      ? globalTranslate("id")
+                      : index === 1
+                      ? globalTranslate("product name")
+                      : index === 2
+                      ? globalTranslate("product price")
+                      : index === 3
+                      ? globalTranslate("quantity")
+                      : index === 4
+                      ? globalTranslate("command id")
+                      : index === 5
+                      ? globalTranslate("invoice id")
+                      : index === 6
+                      ? globalTranslate("date")
+                      : index === 7
+                      ? globalTranslate("")
+                      : ""}
                   </div>
                 </th>
               ))}

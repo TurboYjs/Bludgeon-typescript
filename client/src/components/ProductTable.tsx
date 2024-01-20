@@ -40,7 +40,21 @@ export const ProductTable = defineComponent({
               {[0, 1, 2, 3, 4, 5, 6].map((index) => (
                 <th class="p-2 w-fit ">
                   <div class="font-semibold text-left">
-                    {globalTranslate(`Products.index.feilds[${index}]`)}
+                    {index === 0
+                      ? globalTranslate("id")
+                      : index === 1
+                      ? globalTranslate("product name")
+                      : index === 2
+                      ? globalTranslate("description")
+                      : index === 3
+                      ? globalTranslate("price")
+                      : index === 4
+                      ? globalTranslate("TVA")
+                      : index === 5
+                      ? globalTranslate("stock")
+                      : index === 6
+                      ? globalTranslate("action")
+                      : ""}
                   </div>
                 </th>
               ))}

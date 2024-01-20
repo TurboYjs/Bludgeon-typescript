@@ -1,7 +1,7 @@
 import type {
   clientT,
   commandT,
-  crediT,
+  creditT,
   editModalArgsT,
   invoiceT,
   modalsState,
@@ -22,15 +22,15 @@ export const useModalStore = defineStore("ModalStore", {
       vendor: null,
       command: null,
       invoice: null,
-      credi: null,
+      credit: null,
     };
   },
   actions: {
     updateModal: function ({ key, value }: editModalArgsT) {
       this.theModal[key] = value;
     },
-    updateCrediRow: async function (value: crediT | null) {
-      this.credi = value;
+    updateCreditRow: async function (value: creditT | null) {
+      this.credit = value;
     },
     updateClientRow: function (value: clientT | null) {
       this.client = value;

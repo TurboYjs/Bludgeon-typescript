@@ -34,7 +34,7 @@ export const ClientUpdate = defineComponent({
     return () => (
       <div class="w-1/2 h-fit z-50 gap-3 flex flex-col bg-white p-2 min-w-[350px]">
         <h1 class="font-semibold text-lg text-gray-800 border-b-2 border-b-gray-500 pb-2 uppercase text-center">
-          {globalTranslate("Clients.update.title")}
+          {globalTranslate("update client")}
         </h1>
         <div class="h-full w-full flex flex-col gap-2">
           <UiUpdateInput
@@ -44,7 +44,7 @@ export const ClientUpdate = defineComponent({
                 typeof value == "string" ? value : JSON.stringify(value))
             }
             Type="text"
-            PlaceHolder={globalTranslate("Clients.create.placeholders[0]")}
+            PlaceHolder={globalTranslate("Name")}
           />
           <UiUpdateInput
             Value={ClientRow.value?.email}
@@ -53,7 +53,7 @@ export const ClientUpdate = defineComponent({
                 typeof value == "string" ? value : JSON.stringify(value))
             }
             Type="text"
-            PlaceHolder={globalTranslate("Clients.create.placeholders[1]")}
+            PlaceHolder={globalTranslate("E-mail")}
           />
           <UiUpdateInput
             Value={ClientRow.value?.phone}
@@ -62,7 +62,7 @@ export const ClientUpdate = defineComponent({
                 typeof value == "string" ? value : JSON.stringify(value))
             }
             Type="text"
-            PlaceHolder={globalTranslate("Clients.create.placeholders[2]")}
+            PlaceHolder={globalTranslate("Phone number")}
           />
           <UiUpdateInput
             Value={ClientRow.value?.addresse}
@@ -71,12 +71,12 @@ export const ClientUpdate = defineComponent({
                 typeof value == "string" ? value : JSON.stringify(value))
             }
             Type="text"
-            PlaceHolder={globalTranslate("Clients.create.placeholders[3]")}
+            PlaceHolder={globalTranslate("Address")}
           />
         </div>
         <div class="flex">
           <UiButton colorTheme="a" onClick={() => updateTheClient()}>
-            {globalTranslate("Clients.update.button")} {updateClient.name}
+            {globalTranslate("Update")} {updateClient.name}
           </UiButton>
         </div>
       </div>

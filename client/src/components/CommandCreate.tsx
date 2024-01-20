@@ -59,13 +59,11 @@ export const CommandCreate = defineComponent({
           )}
           class="font-semibold text-lg text-gray-800 border-b-2 border-b-gray-500 pb-2 uppercase text-center"
         >
-          {globalTranslate("Commands.create.title")}
+          {globalTranslate("create new command")}
         </h1>
         <div class="h-full  w-full grid grid-cols-1 gap-2">
           <div class="w-full  h-full flex flex-col gap-1">
-            <h1 class="font-medium">
-              {globalTranslate("Commands.create.details.seller.title")}
-            </h1>
+            <h1 class="font-medium">{globalTranslate("seller details")}</h1>
             <UiSelect
               items={vendors.value.map((vendor) => ({
                 name: vendor.name,
@@ -74,14 +72,11 @@ export const CommandCreate = defineComponent({
               onSelect={(id: number) => (newCommand.vendorId = id)}
               IsClickedOuside={IsClicked.value}
             >
-              {globalTranslate("Commands.create.details.seller.select")}
+              {globalTranslate("Select a seller")}
             </UiSelect>
           </div>
           <div class="w-full  h-full flex flex-col gap-1">
-            <h1 class="font-medium">
-              {" "}
-              {globalTranslate("Commands.create.details.command.title")}
-            </h1>
+            <h1 class="font-medium"> {globalTranslate("command details")}</h1>
             <div class="w-full  h-full flex flex-col mb-1 gap-1">
               <div class="flex justify-between w-full">
                 <div class="h-full w-full flex flex-row flex-nowrap items-center gap-2">
@@ -92,7 +87,7 @@ export const CommandCreate = defineComponent({
                         : (newCommand.status = "")
                     }
                   />
-                  <span>{globalTranslate("Commands.status.delivered")}</span>
+                  <span>{globalTranslate("Delivered")}</span>
                 </div>
                 <div class="h-full w-full flex flex-row flex-nowrap items-center justify-center gap-2">
                   <UiCheckBox
@@ -102,7 +97,7 @@ export const CommandCreate = defineComponent({
                         : (newCommand.status = "")
                     }
                   />
-                  <span>{globalTranslate("Commands.status.pending")}</span>
+                  <span>{globalTranslate("Pending")}</span>
                 </div>
                 <div class="h-full w-full flex flex-row justify-end flex-nowrap items-center gap-2">
                   <UiCheckBox
@@ -112,7 +107,7 @@ export const CommandCreate = defineComponent({
                         : (newCommand.status = "")
                     }
                   />
-                  <span>{globalTranslate("Commands.status.canceled")}</span>
+                  <span>{globalTranslate("Canceled")}</span>
                 </div>
               </div>
             </div>
@@ -128,7 +123,7 @@ export const CommandCreate = defineComponent({
                   commandItems.value.push({ productId: 0, quantity: 0 })
                 }
               >
-                {globalTranslate("Commands.create.details.command.add")}
+                {globalTranslate("add a product")}
               </UiButton>
               <div class="w-full grid grid-cols-[1fr_1fr_36px] pb-10 overflow-auto scrollbar-thin scrollbar-thumb-transparent max-h-64 gap-1">
                 <div class="flex flex-col gap-2">
@@ -142,7 +137,7 @@ export const CommandCreate = defineComponent({
                       IsClickedOuside={IsClicked.value}
                     >
                       {globalTranslate(
-                        "Commands.create.details.command.select"
+                        "Select a product"
                       )}
                     </UiSelect>
                   ))}
@@ -153,7 +148,7 @@ export const CommandCreate = defineComponent({
                       <UiInput
                         IsEmpty={isFlash.value && item.quantity == 0}
                         PlaceHolder={globalTranslate(
-                          "Commands.create.details.command.placeholder"
+                          "Product quantity"
                         )}
                         Type="number"
                         OnInputChange={(value) =>
@@ -179,7 +174,7 @@ export const CommandCreate = defineComponent({
         </div>
         <div class="flex">
           <UiButton colorTheme="a" onClick={() => createNewCommand()}>
-            {globalTranslate("Commands.create.button")}
+            {globalTranslate("Create a Command")}
           </UiButton>
         </div>
       </div>

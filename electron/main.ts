@@ -18,7 +18,7 @@ function createWindow() {
     },
     icon: "../favicon.ico",
   });
-  win.loadFile("../index.html");
+  win.loadFile("../../client/dist/index.html");
 }
 
 app.whenReady().then(() => {

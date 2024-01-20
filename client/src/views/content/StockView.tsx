@@ -20,12 +20,12 @@ export const StockView = defineComponent({
     //
     const modalStore = useModalStore();
     const stockStore = useStockStore();
-    const { stockMouvements } = storeToRefs(stockStore);
+    const { stockMovements } = storeToRefs(stockStore);
 
     const searchQuery = ref<string>("");
 
     onBeforeMount(() => {
-      stockStore.getAllStockMouvements();
+      stockStore.getAllStockMovements();
     });
 
     const updateModal = (name: string) => {
@@ -75,7 +75,7 @@ export const StockView = defineComponent({
               <StockTable
                 FilterParam={searchQuery.value}
                 // sortBy={(by: string) => sortClientsBy(by)}
-                Stock={stockMouvements.value}
+                Stock={stockMovements.value}
               />
             </Transition>
           </div>

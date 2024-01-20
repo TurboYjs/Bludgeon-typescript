@@ -1,41 +1,38 @@
-import { globalTranslate } from "@/utils/globalTranslate";
-import { defineComponent, onBeforeUnmount } from "vue";
-import { useCommandStore } from "@/stores/commandStore";
+import { defineComponent, onBeforeUnmount, type PropType } from "vue";
+import { useCreditStore } from "@/stores/creditStore";
 import { useModalStore } from "@/stores/modalStore";
 import { storeToRefs } from "pinia";
 import { UiButton } from "./ui/UiButton";
+import { globalTranslate } from "@/utils/globalTranslate";
 
-export const CommandDelete = defineComponent({
-  name: "CommandDelete",
+export const CreditDelete = defineComponent({
+  name: "CreditDelete",
   components: { UiButton },
   setup() {
-    //
     const modalStore = useModalStore();
-    const { command } = storeToRefs(modalStore);
-    //
-    const deleteTheCommand = () => {
-      if (command.value?.id) {
-        useCommandStore().deleteOneCommand(command.value?.id);
+    const { credit } = storeToRefs(modalStore);
+    const deleteTheCredit = () => {
+      if (credit.value?.id) {
+        useCreditStore().deleteOneCredit(credit.value?.id);
         modalStore.updateModal({ key: "show", value: false });
       }
     };
-    //
-    onBeforeUnmount(() => modalStore.updateCommandRow(null));
+    onBeforeUnmount(() => modalStore.updateCreditRow(null));
     return () => (
       <div class="w-1/2 h-fit z-50 gap-3 flex flex-col bg-white p-2 min-w-[350px]">
         <h1 class="font-semibold text-lg text-gray-800 border-b-2 border-b-gray-500 pb-2 uppercase text-center">
-          {globalTranslate("are you sure you wanna delete the command")}n° {command.value?.id} ?
+          {globalTranslate("Credis.delete.title")} N° {credit.value?.id} ?
         </h1>
         <div class="flex gap-2">
-          <UiButton colorTheme="a" onClick={() => deleteTheCommand()}>
-            {globalTranslate("Confirm")}
+          <UiButton colorTheme="a" onClick={() => deleteTheCredit()}>
+            {globalTranslate("Credits.delete.yes")}
           </UiButton>
           <UiButton
             onClick={() =>
               modalStore.updateModal({ key: "show", value: false })
             }
           >
-            {globalTranslate("Cancel")}
+            {globalTranslate("Credits.delete.no")}
           </UiButton>
         </div>
       </div>

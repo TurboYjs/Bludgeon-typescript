@@ -67,12 +67,12 @@ export const CommandUpdate = defineComponent({
           )}
           class="font-semibold  text-lg text-gray-800 border-b-2 border-b-gray-500 pb-2 uppercase text-center"
         >
-          {globalTranslate("Commands.update.title")} N° {updateCommand.id}
+          {globalTranslate("update command")} N° {updateCommand.id}
         </h1>
         <div class="h-full  w-full grid grid-cols-1 gap-2">
           <div class="w-full  h-full flex flex-col gap-1">
             <h1 class="font-medium">
-              {globalTranslate("Commands.update.details.seller.title")}
+              {globalTranslate("seller details")}
             </h1>
             <UiUpdateSelect
               Value={
@@ -86,12 +86,12 @@ export const CommandUpdate = defineComponent({
               onSelect={(id: number) => (updateCommand.vendorId = id)}
               IsClickedOuside={IsClicked.value}
             >
-              {globalTranslate("Commands.update.details.vendor.select")}
+              {globalTranslate("Select a seller")}
             </UiUpdateSelect>
           </div>
           <div class="w-full  h-full flex flex-col gap-1">
             <h1 class="font-medium">
-              {globalTranslate("Commands.update.details.command.title")}
+              {globalTranslate("command details")}
             </h1>
             <div class="w-full  h-full flex flex-col mb-1 gap-1">
               <div class="flex justify-between w-full">
@@ -113,7 +113,7 @@ export const CommandUpdate = defineComponent({
                         : (updateCommand.status = "")
                     }
                   />
-                  <span>{globalTranslate("Commands.status.pending")}</span>
+                  <span>{globalTranslate("Pending")}</span>
                 </div>
                 <div class="h-full w-full flex flex-row justify-end flex-nowrap items-center gap-2">
                   <UiCheckBox
@@ -123,7 +123,7 @@ export const CommandUpdate = defineComponent({
                         : (updateCommand.status = "")
                     }
                   />
-                  <span>{globalTranslate("Commands.status.canceled")}</span>
+                  <span>{globalTranslate("Canceled")}</span>
                 </div>
               </div>
             </div>
@@ -142,7 +142,7 @@ export const CommandUpdate = defineComponent({
                   })
                 }
               >
-                {globalTranslate("Commands.update.details.command.add")}
+                {globalTranslate("add a product")}
               </UiButton>
               <div class="w-full grid grid-cols-[1fr_1fr_36px] pb-10 overflow-auto scrollbar-thin scrollbar-thumb-transparent max-h-64 gap-1">
                 <div class="flex flex-col gap-2">
@@ -160,7 +160,7 @@ export const CommandUpdate = defineComponent({
                       IsClickedOuside={IsClicked.value}
                     >
                       {globalTranslate(
-                        "Commands.update.details.command.select"
+                        "Select a product"
                       )}
                     </UiUpdateSelect>
                   ))}
@@ -171,7 +171,7 @@ export const CommandUpdate = defineComponent({
                       <UiUpdateInput
                         Value={item.quantity}
                         PlaceHolder={globalTranslate(
-                          "Commands.create.details.command.placeholder"
+                          "Product quantity"
                         )}
                         Type="number"
                         OnInputChange={(value) =>
@@ -201,7 +201,7 @@ export const CommandUpdate = defineComponent({
         </div>
         <div class="flex">
           <UiButton colorTheme="a" onClick={() => updateTheCommand()}>
-            {globalTranslate("Commands.update.button")}
+            {globalTranslate("Update Command")}
           </UiButton>
         </div>
       </div>

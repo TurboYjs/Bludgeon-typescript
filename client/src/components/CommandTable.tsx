@@ -53,7 +53,19 @@ export const CommandTable = defineComponent({
               {[0, 1, 2, 3, 4, 5].map((index) => (
                 <th class="p-2 w-fit ">
                   <div class="font-semibold text-left">
-                    {globalTranslate(`Commands.index.feilds[${index}]`)}
+                    {index === 0
+                      ? globalTranslate("command id")
+                      : index === 1
+                      ? globalTranslate("seller id")
+                      : index === 2
+                      ? globalTranslate("items")
+                      : index === 3
+                      ? globalTranslate("STATUS")
+                      : index === 4
+                      ? globalTranslate("Date")
+                      : index === 5
+                      ? globalTranslate("action")
+                      : ""}
                   </div>
                 </th>
               ))}
@@ -109,9 +121,13 @@ export const CommandTable = defineComponent({
                               : "bg-red-300 px-2 py-[1px] rounded-full"
                           }
                         >
-                          {globalTranslate(
-                            `Commands.status.${Command.status.toLowerCase()}`
-                          )}
+                          {Command.status.toLowerCase() === "delivered"
+                            ? globalTranslate("Delivered")
+                            : Command.status.toLowerCase() === "pending"
+                            ? globalTranslate("Pending")
+                            : Command.status.toLowerCase() === "canceled"
+                            ? globalTranslate("Canceled")
+                            : ""}
                         </span>
                       ) : (
                         <span class="text-red-400">No status</span>
