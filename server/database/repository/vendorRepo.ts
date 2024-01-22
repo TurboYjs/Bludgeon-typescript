@@ -1,11 +1,12 @@
 import { prisma } from "..";
-import { newVendorT, updateData, updateVendorT } from "../models";
+import { updateData } from "../models";
 
-export const createVendor = (data: newVendorT) => {
+export const createVendor = (data: updateData<any>) => {
+  // @ts-ignore
   return prisma.vendor.create({ data });
 };
 
-export const updateVendor = (vendor: updateData<updateVendorT>) => {
+export const updateVendor = (vendor: updateData<any>) => {
   return prisma.vendor.update({
     where: { id: vendor.id },
     data: vendor.data,

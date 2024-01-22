@@ -4,7 +4,7 @@ import {
   createVendorController,
   updateVendorController,
   deleteVendorController,
-} from "../controllers/VendorController";
+} from "../controllers/vendorController";
 import { Router } from "express";
 
 const route = Router();

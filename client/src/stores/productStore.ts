@@ -5,7 +5,7 @@ import type {
   productState,
   newProductT,
   updateProductT,
-  productTfromApiT,
+  productTFromApiT,
 } from "@/types";
 import { defineStore } from "pinia";
 import axios from "axios";
@@ -63,9 +63,9 @@ export const useProductStore = defineStore("ProductStore", {
   },
   actions: {
     getAllProducts: async function () {
-      const res: dataRowsT<productTfromApiT> = await axios.get(api);
+      const res: dataRowsT<productTFromApiT> = await axios.get(api);
       console.log(res.data.rows);
-      this.products = res.data.rows.map((item: productTfromApiT) => {
+      this.products = res.data.rows.map((item: productTFromApiT) => {
         return {
           ...item,
           quantity: item.stockMovements.reduce((a, b) => a + b.quantity, 0),

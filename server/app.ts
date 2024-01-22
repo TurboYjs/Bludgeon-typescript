@@ -6,8 +6,8 @@ import { sellerRoute } from "./routes/sellerRoute";
 import { stockRoute } from "./routes/stockRoute";
 import { creditRoute } from "./routes/creditRoute";
 import { Application } from "express";
-import * as express from "express";
-import * as cors from "cors";
+import express from "express";
+import cors from "cors";
 import {erdRoute} from "./routes/erdRoute";
 
 export class expressServer {
@@ -40,7 +40,3 @@ export class expressServer {
     });
   }
 }
-
-const sth = new expressServer(express());
-
-sth.run();

@@ -1,15 +1,23 @@
 {
   "compilerOptions": {
-    // "inlineSourceMap": true,
-    // "inlineSources": true,
     "module": "commonjs",
-    "noImplicitAny": true,
-    "sourceMap": true,
+    "target": "es6",
     "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*"]
-    }
+    "strict": true,
+    "strictNullChecks": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "useUnknownInCatchVariables": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true
   },
-  "include": ["./**/*"]
+  "include": [
+    "electron/**/*.ts",
+    "server/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

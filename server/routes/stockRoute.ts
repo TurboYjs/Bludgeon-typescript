@@ -2,7 +2,7 @@ import {
   getStockController,
   createStockController,
   getStocksController,
-} from "../controllers/StockController";
+} from "../controllers/stockController";
 import { Router } from "express";
 
 const route = Router();

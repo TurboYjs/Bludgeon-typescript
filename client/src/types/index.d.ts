@@ -187,7 +187,7 @@ export interface productT {
   type: string;
 }
 export interface newProductT extends Omit<productT, "id"> {}
-export interface productTfromApiT extends Omit<productT, "stock"> {
+export interface productTFromApiT extends Omit<productT, "stock"> {
   stockMovements: { quantity: number }[];
 }
 export interface updateProductT extends Partial<productT> {}

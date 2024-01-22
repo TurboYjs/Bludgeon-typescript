@@ -81,7 +81,7 @@ export const CommandTable = defineComponent({
                   <td class="p-2">
                     <span class="h-full w-full grid">
                       <UiCheckBox
-                        onCheck={(check) => checkThisCommand(check, Command.id)}
+                        onCheck={(check: boolean) => checkThisCommand(check, Command.id)}
                       />
                     </span>
                   </td>

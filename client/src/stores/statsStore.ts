@@ -7,7 +7,7 @@ const api: string = "http://localhost:3111/stats/";
 const getMonth = (i: number) =>
   new Date(
     new Date().getTime() - i * 30 * 24 * 60 * 60 * 1000
-  ).toLocaleDateString("fr-fr", {
+  ).toLocaleDateString("en", {
     month: "long",
   });
 
@@ -20,14 +20,14 @@ export const useStatsStore = defineStore("StatsStore", {
     getStockMovementStats: (
       stocks: stockMvmT[]
     ): [result: FilteredStockData, months: [string, string, string]] => {
-      let result: FilteredStockData = {};
+      const result: FilteredStockData = {};
       const months: [string, string, string] = [
         getMonth(2),
         getMonth(1),
         getMonth(0),
       ];
       //group based on the month {january:[...]}
-      let dataSet: { [key: string]: stockMvmT[] } = stocks
+      const dataSet: { [key: string]: stockMvmT[] } = stocks
         .filter(({ date }) => olderThanThreeMonths(date))
         .map(({ date, quantity, model }) => ({
           date: new Date(date).toLocaleDateString("fr-fr", {

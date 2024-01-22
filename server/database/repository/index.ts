@@ -4,3 +4,4 @@ export * from "./sellerRepo";
 export * from "./clientRepo";
 export * from "./invoiceRepo";
 export * from "./stockRepo";
+export * from "./vendorRepo";

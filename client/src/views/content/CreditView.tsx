@@ -38,14 +38,14 @@ export const CreditView = defineComponent({
               <div class="w-1/3">
                 <UiInput
                   IsEmpty={false}
-                  OnInputChange={(value) =>
+                  OnInputChange={(value?: string) =>
                     (searchQuery.value =
                       typeof value !== "string"
                         ? JSON.stringify(value).toLocaleLowerCase()
                         : value.toLocaleLowerCase())
                   }
                   Type="text"
-                  PlaceHolder={globalTranslate("Global.search")}
+                  PlaceHolder={globalTranslate("Search")}
                 >
                   <UiIcon
                     class=" fill-gray-400 cursor-default hover:bg-white"
@@ -56,13 +56,13 @@ export const CreditView = defineComponent({
               <div class="w-1/4 flex gap-2">
                 <UiButton
                   colorTheme="a"
-                  onClick={() => updateModal("CrediCreate")}
+                  onClick={() => updateModal("CreditCreate")}
                 >
                   <UiIcon
                     class=" fill-gray-900 cursor-default hover:bg-transparent"
                     name="add"
                   />{" "}
-                  {globalTranslate("Credis.index.addButton")}
+                  {globalTranslate("Add to Credit")}
                 </UiButton>
               </div>
             </div>

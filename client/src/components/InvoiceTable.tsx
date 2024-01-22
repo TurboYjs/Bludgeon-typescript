@@ -77,7 +77,9 @@ export const InvoiceTable = defineComponent({
                   <td class="p-2">
                     <span class="h-full w-full grid">
                       <UiCheckBox
-                        onCheck={(check) => checkThisInvoice(check, Invoice.id)}
+                        onCheck={(check: boolean) =>
+                          checkThisInvoice(check, Invoice.id)
+                        }
                       />
                     </span>
                   </td>

@@ -4,7 +4,7 @@ import {
   createInvoiceController,
   updateInvoiceController,
   deleteInvoiceController,
-} from "../controllers/InvoiceController";
+} from "../controllers/invoiceController";
 import { Router } from "express";
 
 const route = Router();

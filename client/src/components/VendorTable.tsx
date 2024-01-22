@@ -70,7 +70,7 @@ export const VendorTable = defineComponent({
                   <td class="p-2">
                     <span class="h-full w-full grid">
                       <UiCheckBox
-                        onCheck={(check) => checkThisUser(check, Vendor.id)}
+                        onCheck={(check: boolean) => checkThisUser(check, Vendor.id)}
                       />
                     </span>
                   </td>
@@ -93,7 +93,7 @@ export const VendorTable = defineComponent({
                   </td>
                   <td class="p-2">
                     <div class="text-left whitespace-nowrap overflow-ellipsis">
-                      {Vendor.addresse ?? (
+                      {Vendor.address ?? (
                         <span class="text-red-400">No address</span>
                       )}
                     </div>

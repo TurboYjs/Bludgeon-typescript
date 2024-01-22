@@ -3,7 +3,7 @@ import { prisma } from "..";
 import {
   newCommandItemT,
   newCommandT,
-  updateCommmandT,
+  updateCommandT,
   updateData,
   updateCommandItemT,
 } from "../models";
@@ -135,7 +135,7 @@ export const deleteCommandItem = (id: number) => {
   });
 };
 
-export const updateCommand = (command: updateData<updateCommmandT>) => {
+export const updateCommand = (command: updateData<updateCommandT>) => {
   return prisma.command.update({
     where: {
       id: command.id,

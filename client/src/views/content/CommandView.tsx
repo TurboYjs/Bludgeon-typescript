@@ -43,7 +43,7 @@ export const CommandView = defineComponent({
               <div class="w-1/3">
                 <UiInput
                   IsEmpty={false}
-                  OnInputChange={(value) =>
+                  OnInputChange={(value?: string) =>
                     (searchQuery.value =
                       typeof value !== "string"
                         ? JSON.stringify(value).toLocaleLowerCase()

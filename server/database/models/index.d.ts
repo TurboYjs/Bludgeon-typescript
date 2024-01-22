@@ -11,7 +11,7 @@ export interface clientT {
   name: string;
   email?: string;
   phone?: string;
-  addresse?: string;
+  address?: string;
 }
 export interface newClientT extends Omit<clientT, "id"> {}
 export interface updateClientT extends Partial<newClientT> {}
@@ -25,7 +25,7 @@ export interface sellerT {
   name: string;
   email?: string;
   phone?: string;
-  addresse?: string;
+  address?: string;
 }
 export interface newSellerT extends Omit<sellerT, "id"> {}
 export interface updateSellerT extends Partial<newSellerT> {}
@@ -58,7 +58,7 @@ export interface commandT {
 
 export interface newCommandT extends Omit<commandT, "id"> {}
 
-export interface updateCommmandT extends Partial<newCommandT> {}
+export interface updateCommandT extends Partial<newCommandT> {}
 
 export interface commandItemT {
   id: number;

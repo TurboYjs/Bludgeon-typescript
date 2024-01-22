@@ -3,7 +3,7 @@ import {
   deleteCreditController,
   getCreditsController,
   updateCreditController,
-} from "../controllers/CreditController";
+} from "../controllers/creditController";
 import { Router } from "express";
 
 const route = Router();

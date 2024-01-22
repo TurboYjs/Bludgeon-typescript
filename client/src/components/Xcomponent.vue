@@ -39,8 +39,8 @@ export default {
     ClientUpdate,
     ClientCreate,
     StockCreate,
-    CrediCreate: CreditCreate,
-    CrediDelete: CreditDelete,
+    CreditCreate: CreditCreate,
+    CreditDelete: CreditDelete,
   },
   props: {
     name: {

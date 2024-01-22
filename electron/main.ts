@@ -1,6 +1,6 @@
 import { app, BrowserWindow } from "electron";
 import { expressServer } from "../server/app.js";
-import * as express from "express";
+import express from "express";
 import * as path from "path";
 
 const server = new expressServer(express());
@@ -18,7 +18,7 @@ function createWindow() {
     },
     icon: "../favicon.ico",
   });
-  win.loadFile("../../client/dist/index.html");
+  win.loadURL(process.env.ELECTRON_START_URL || `file://${path.join(__dirname, '../../client/dist/index.html')}`);
 }
 
 app.whenReady().then(() => {

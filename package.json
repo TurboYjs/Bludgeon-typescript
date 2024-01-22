@@ -4,15 +4,21 @@
   "type": "commonjs",
   "main": "./dist/electron/main.js",
   "scripts": {
-    "build": "tsc",
     "start": "npm run build && electron ./dist/electron/main.js",
-    "dev": "nodemon server/app.ts",
+    "dev": "nodemon server/index.ts",
     "postinstall": "npx prisma generate",
     "migrate": "prisma migrate deploy",
     "migrate:reset": "prisma migrate reset",
     "migrate:dev": "npx prisma migrate dev --create-only",
     "migrate:deploy": "prisma migrate deploy",
-    "db-push": "prisma db push"
+    "db-push": "prisma db push",
+
+    "build": "tsc -p tsconfig-build.json",
+    "electron-build-all": "pnpm run electron-build-mac && pnpm run electron-build-win && pnpm run electron-build-linux && pnpm run move-build",
+    "electron-build-mac": "electron-builder -m && pnpm run move-packages",
+    "electron-build-win": "electron-builder -w && pnpm run move-packages",
+    "electron-build-linux": "electron-builder -l && pnpm run move-packages",
+    "electron-dev": "pnpm run build && cross-env ELECTRON_START_URL=http://localhost:5173 electron --inspect ./dist/electron/main.js"
   },
   "dependencies": {
     "@prisma/client": "^4.6.1",
@@ -31,6 +37,7 @@
     "prisma": "^4.6.1",
     "typescript": "^4.8.3",
     "@mermaid-js/mermaid-cli": "10.6.1",
-    "nodemon": "3.0.3"
+    "nodemon": "3.0.3",
+    "cross-env": "7.0.3"
   }
 }
